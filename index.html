@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Dorado Overseas — Travel & Tour Agency</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B2D;
+    --ink-2:#16283F;
+    --teal:#28414F;
+    --gold:#C9A227;
+    --gold-soft:#E7C766;
+    --ivory:#F3EBDA;
+    --rust:#9A4A32;
+    --line: rgba(243,235,218,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'Inter', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    font-size:0.72rem;
+    color:var(--gold-soft);
+    font-weight:600;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,27,45,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:1.25rem; font-weight:600;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:30px; height:30px; border:1.5px solid var(--gold);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .logo .mark::before{
+    content:""; position:absolute; width:1px; height:16px; background:var(--gold);
+  }
+  .logo .mark::after{
+    content:""; position:absolute; width:16px; height:1px; background:var(--gold);
+  }
+  .navlinks{display:flex; gap:36px; font-size:0.9rem;}
+  .navlinks a{opacity:0.85; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1; color:var(--gold-soft);}
+  .nav-cta{
+    border:1px solid var(--gold); padding:9px 20px; border-radius:2px;
+    font-size:0.85rem; letter-spacing:0.03em;
+    transition:background .2s, color .2s;
+  }
+  .nav-cta:hover{background:var(--gold); color:var(--ink);}
+  .navtoggle{display:none; background:none; border:none; color:var(--ivory); font-size:1.5rem;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    background-image:
+      linear-gradient(rgba(15,27,45,0.55), rgba(15,27,45,0.75)),
+      repeating-linear-gradient(0deg, transparent, transparent 59px, var(--line) 60px),
+      repeating-linear-gradient(90deg, transparent, transparent 59px, var(--line) 60px);
+  }
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center;}
+  .hero h1{font-size:3.4rem; line-height:1.08; margin:18px 0 24px;}
+  .hero h1 em{font-style:italic; color:var(--gold-soft);}
+  .hero p{font-size:1.05rem; max-width:460px; opacity:0.85; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--gold); color:var(--ink); padding:15px 28px;
+    font-weight:600; font-size:0.9rem; letter-spacing:0.02em; border-radius:2px;
+    display:inline-block; transition:transform .2s, background .2s;
+  }
+  .btn-primary:hover{background:var(--gold-soft); transform:translateY(-2px);}
+  .btn-ghost{
+    border:1px solid var(--line); padding:15px 26px; border-radius:2px;
+    font-size:0.9rem; display:inline-block; transition:border-color .2s;
+  }
+  .btn-ghost:hover{border-color:var(--gold);}
+
+  .route-box{
+    position:relative; aspect-ratio:1/1; border:1px solid var(--line);
+    border-radius:4px; background:radial-gradient(circle at 30% 30%, rgba(201,162,39,0.08), transparent 60%);
+  }
+  .route-box svg{width:100%; height:100%;}
+  .route-path{
+    fill:none; stroke:var(--gold); stroke-width:1.4; stroke-dasharray:6 6;
+    stroke-dashoffset:0; animation:dash 30s linear infinite;
+  }
+  @keyframes dash{ to { stroke-dashoffset:-600; } }
+  .route-dot{fill:var(--gold-soft);}
+  .route-label{
+    font-family:'Inter'; font-size:9px; fill:var(--ivory); opacity:0.7; letter-spacing:0.05em;
+  }
+
+  /* STRIP */
+  .strip{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:22px 0; background:var(--ink-2);
+  }
+  .strip .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; font-size:0.82rem; opacity:0.8; letter-spacing:0.04em;}
+
+  /* SECTION HEAD */
+  section{padding:100px 0;}
+  .section-head{max-width:600px; margin-bottom:56px;}
+  .section-head h2{font-size:2.2rem; margin-top:14px;}
+  .section-head p{opacity:0.75; margin-top:14px; font-size:1rem;}
+
+  /* PACKAGES */
+  .packages-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  .package-card{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:4px;
+    padding:30px; position:relative; overflow:hidden; transition:border-color .25s, transform .25s;
+  }
+  .package-card:hover{border-color:var(--gold); transform:translateY(-4px);}
+  .stamp{
+    position:absolute; top:24px; right:24px;
+    width:64px; height:64px; border:1.5px dashed var(--rust);
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+    transform:rotate(-12deg); color:var(--rust); opacity:0.85;
+  }
+  .stamp span{
+    font-family:'Fraunces'; font-weight:600; font-size:0.78rem; letter-spacing:0.04em;
+  }
+  .package-card .coords{font-size:0.72rem; opacity:0.6; margin-top:6px; letter-spacing:0.04em;}
+  .package-card h3{font-size:1.4rem; margin:14px 0 10px; padding-right:60px;}
+  .package-card p{font-size:0.9rem; opacity:0.75; margin-bottom:22px;}
+  .package-meta{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--line); padding-top:18px;
+  }
+  .price{font-family:'Fraunces'; font-size:1.15rem; color:var(--gold-soft);}
+  .price small{font-family:'Inter'; font-size:0.7rem; opacity:0.6; display:block; font-weight:400;}
+  .package-meta a{font-size:0.82rem; border-bottom:1px solid var(--gold); padding-bottom:2px;}
+
+  /* VISA */
+  .visa{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .visa .wrap{display:grid; grid-template-columns:1fr 1.05fr; gap:70px; align-items:start;}
+  .visa-types{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px;}
+  .visa-tag{
+    border:1px solid var(--line); padding:9px 16px; border-radius:999px;
+    font-size:0.82rem; letter-spacing:0.02em; opacity:0.9;
+  }
+  .visa-note{margin-top:28px; font-size:0.88rem; opacity:0.7; max-width:420px;}
+
+  .checklist{
+    background:var(--ink); border:1px solid var(--line); border-radius:4px; padding:36px;
+    position:relative;
+  }
+  .checklist::before{
+    content:"Document checklist"; font-family:'Fraunces'; font-size:1rem;
+    display:block; margin-bottom:22px; color:var(--gold-soft);
+  }
+  .check-item{
+    display:flex; align-items:flex-start; gap:14px;
+    padding:14px 0; border-top:1px solid var(--line);
+  }
+  .check-item:first-of-type{border-top:none;}
+  .check-mark{
+    width:20px; height:20px; border:1.5px solid var(--gold); border-radius:3px;
+    flex-shrink:0; margin-top:2px; position:relative;
+  }
+  .check-mark::after{
+    content:""; position:absolute; left:5px; top:1px; width:5px; height:9px;
+    border-right:1.5px solid var(--gold); border-bottom:1.5px solid var(--gold);
+    transform:rotate(45deg);
+  }
+  .check-item div h4{font-size:0.94rem; margin-bottom:3px;}
+  .check-item div p{font-size:0.82rem; opacity:0.65; margin:0;}
+
+  /* ABOUT */
+  .about{background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about .wrap{display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;}
+  .about-stats{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:32px;}
+  .stat-num{font-family:'Fraunces'; font-size:2.1rem; color:var(--gold-soft);}
+  .stat-label{font-size:0.78rem; opacity:0.7; margin-top:4px;}
+  .about p{opacity:0.8; margin-top:18px;}
+
+  /* PROCESS */
+  .process-list{display:flex; flex-direction:column; margin-top:10px;}
+  .process-item{
+    display:grid; grid-template-columns:90px 1fr; gap:24px;
+    padding:26px 0; border-top:1px solid var(--line);
+  }
+  .process-item:last-child{border-bottom:1px solid var(--line);}
+  .process-item .stage{font-family:'Fraunces'; color:var(--gold-soft); font-size:0.95rem;}
+  .process-item h4{font-size:1.05rem; margin-bottom:6px;}
+  .process-item p{font-size:0.88rem; opacity:0.72;}
+
+  /* CONTACT */
+  .contact .wrap{display:grid; grid-template-columns:1fr 1fr; gap:70px;}
+  .contact h2{font-size:2.1rem;}
+  .contact p.lead{opacity:0.75; margin-top:14px; max-width:420px;}
+  .contact-info{margin-top:38px; display:flex; flex-direction:column; gap:18px; font-size:0.92rem;}
+  .contact-info .k{color:var(--gold-soft); font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; display:block; margin-bottom:3px;}
+
+  form{display:flex; flex-direction:column; gap:18px;}
+  .field{display:flex; flex-direction:column; gap:8px;}
+  .field label{font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; opacity:0.7;}
+  .field input, .field select, .field textarea{
+    background:transparent; border:1px solid var(--line); color:var(--ivory);
+    padding:13px 14px; font-family:'Inter'; font-size:0.92rem; border-radius:2px;
+    outline:none; transition:border-color .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold);}
+  .field select option{background:var(--ink);}
+  form .btn-primary{border:none; cursor:pointer; margin-top:6px;}
+
+  footer{border-top:1px solid var(--line); padding:44px 0;}
+  footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px; font-size:0.82rem; opacity:0.65;}
+
+  @media (max-width:880px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .route-box{max-width:340px; margin:0 auto;}
+    .hero h1{font-size:2.4rem;}
+    .packages-grid{grid-template-columns:1fr;}
+    .about .wrap{grid-template-columns:1fr;}
+    .visa .wrap{grid-template-columns:1fr;}
+    .contact .wrap{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .route-path{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo"><span class="mark"></span> El Dorado Overseas</div>
+    <div class="navlinks">
+      <a href="#packages">Packages</a>
+      <a href="#visa">Visa support</a>
+      <a href="#about">About</a>
+      <a href="#process">How it works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Plan my trip</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Overseas travel & tour planning</span>
+      <h1>Where the map<br>runs out, <em>we begin.</em></h1>
+      <p>We plan the routes, the visas, the small details you'd never think of — so your only job on the trip is showing up.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start planning</a>
+        <a href="#packages" class="btn-ghost">See packages</a>
+      </div>
+    </div>
+    <div class="route-box">
+      <svg viewBox="0 0 300 300">
+        <path class="route-path" d="M40,220 C100,140 140,200 170,90 C190,20 230,60 260,40"></path>
+        <circle class="route-dot" cx="40" cy="220" r="4"></circle>
+        <circle class="route-dot" cx="170" cy="90" r="4"></circle>
+        <circle class="route-dot" cx="260" cy="40" r="4"></circle>
+        <text class="route-label" x="46" y="238">DHAKA · 23.8°N</text>
+        <text class="route-label" x="176" y="80">DUBAI · 25.2°N</text>
+        <text class="route-label" x="200" y="34">PARIS · 48.8°N</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <span>500+ journeys planned</span>
+    <span>Visa & documentation support</span>
+    <span>24/7 on-trip assistance</span>
+    <span>Since 2016</span>
+  </div>
+</div>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Featured routes</span>
+      <h2>Tour packages</h2>
+      <p>Hand-built itineraries with flights, stay, and ground transport arranged end to end.</p>
+    </div>
+    <div class="packages-grid">
+
+      <div class="package-card">
+        <div class="stamp"><span>DXB</span></div>
+        <span class="eyebrow">Desert & skyline</span>
+        <div class="coords">25.2° N, 55.3° E</div>
+        <h3>Dubai, UAE</h3>
+        <p>5 nights across the city and the dunes — desert safari, Burj Khalifa, and old-town souks included.</p>
+        <div class="package-meta">
+          <div class="price">৳68,000 <small>per person / 5N-6D</small></div>
+          <a href="#contact">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="stamp"><span>CDG</span></div>
+        <span class="eyebrow">Classic Europe</span>
+        <div class="coords">48.8° N, 2.3° E</div>
+        <h3>Paris, France</h3>
+        <p>7 nights through Paris and the Loire countryside, with Schengen visa support handled for you.</p>
+        <div class="package-meta">
+          <div class="price">৳1,85,000 <small>per person / 7N-8D</small></div>
+          <a href="#contact">Enquire →</a>
+        </div>
+      </div>
+
+      <div class="package-card">
+        <div class="stamp"><span>LCA</span></div>
+        <span class="eyebrow">Island escape</span>
+        <div class="coords">35.1° N, 33.4° E</div>
+        <h3>Cyprus</h3>
+        <p>6 nights on the coast — Larnaca, Paphos ruins, and the Troodos mountains at your own pace.</p>
+        <div class="package-meta">
+          <div class="price">৳1,42,000 <small>per person / 6N-7D</small></div>
+          <a href="#contact">Enquire →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="visa" id="visa">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Documentation</span>
+      <h2>Visa support,<br>start to finish.</h2>
+      <p style="opacity:0.8; margin-top:16px; max-width:420px;">From filling out the application to booking your embassy slot, we handle the paperwork so a rejection never comes down to a missing form.</p>
+      <div class="visa-types">
+        <span class="visa-tag">Tourist visa</span>
+        <span class="visa-tag">Student visa</span>
+        <span class="visa-tag">Business visa</span>
+        <span class="visa-tag">Work visa</span>
+        <span class="visa-tag">Schengen visa</span>
+        <span class="visa-tag">Transit visa</span>
+        <span class="visa-tag">Umrah visa</span>
+      </div>
+      <p class="visa-note">Approval times and required documents vary by country — we confirm the exact list for your destination before you apply.</p>
+    </div>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-mark"></div>
+        <div><h4>Valid passport</h4><p>At least 6 months validity from your travel date</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"></div>
+        <div><h4>Passport-size photos</h4><p>As per the destination country's specification</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"></div>
+        <div><h4>Bank statement</h4><p>Last 6 months, showing sufficient funds</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"></div>
+        <div><h4>Travel & hotel booking</h4><p>Confirmed flight and accommodation proof</p></div>
+      </div>
+      <div class="check-item">
+        <div class="check-mark"></div>
+        <div><h4>Cover letter</h4><p>Purpose of visit, drafted with our team</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Who we are</span>
+      <h2>A small team that plans<br>like it's their own trip.</h2>
+      <p>El Dorado Overseas is an independent travel agency handling flights, visas, stays, and on-ground support for travellers heading abroad — first-timers and frequent flyers alike.</p>
+      <div class="about-stats">
+        <div><div class="stat-num">500+</div><div class="stat-label">Trips arranged</div></div>
+        <div><div class="stat-num">30+</div><div class="stat-label">Countries covered</div></div>
+        <div><div class="stat-num">9</div><div class="stat-label">Years in business</div></div>
+        <div><div class="stat-num">24/7</div><div class="stat-label">Support while abroad</div></div>
+      </div>
+    </div>
+    <div id="process">
+      <div class="process-list">
+        <div class="process-item">
+          <div class="stage">01</div>
+          <div><h4>Tell us the trip</h4><p>Destination, dates, budget — a short call or form is enough to start.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="stage">02</div>
+          <div><h4>We build the route</h4><p>Flights, stay, and a day-by-day plan, sent back within 48 hours.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="stage">03</div>
+          <div><h4>Visa & paperwork</h4><p>We prepare and track your documentation end to end.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="stage">04</div>
+          <div><h4>You travel</h4><p>Tickets in hand, support on call for the whole trip.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Get in touch</span>
+      <h2>Let's plan your trip</h2>
+      <p class="lead">Send us a few details and we'll come back with a route and a quote — usually within a day.</p>
+      <div class="contact-info">
+        <div><span class="k">Phone</span>+880 1XXX-XXXXXX</div>
+        <div><span class="k">Email</span>hello@eldoradooverseas.com</div>
+        <div><span class="k">Office</span>Dhaka, Bangladesh</div>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Thanks — we will get back to you shortly.');">
+      <div class="field">
+        <label for="name">Full name</label>
+        <input id="name" type="text" placeholder="Your name" required>
+      </div>
+      <div class="field">
+        <label for="dest">Destination</label>
+        <input id="dest" type="text" placeholder="Where do you want to go?">
+      </div>
+      <div class="field">
+        <label for="msg">Message</label>
+        <textarea id="msg" rows="4" placeholder="Dates, group size, budget — anything helpful"></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Send enquiry</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 El Dorado Overseas. All rights reserved.</span>
+    <span>Dhaka, Bangladesh</span>
+  </div>
+</footer>
+
+</body>
+</html>
